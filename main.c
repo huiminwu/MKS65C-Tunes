@@ -8,6 +8,8 @@ int main() {
     insert("True", "Spandau Ballet", song1);
     insert("Hotel California", "Eagles", song1);
     insert("Take It Easy", "Eagles", song1);
+    insert("ZZZZZZ", "AAA", song1);
+    insert("ZZZZ", "AAA", song1);
     printf("LINKED LIST TESTS \n====================================\n");
     printf("Testing print_list: \n");
     print_list(song1);
