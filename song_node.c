@@ -16,7 +16,7 @@ void insert(char name[100], char artist[100], struct song_node * front){
 	struct song_node * new_song = malloc(sizeof(struct song_node));
 	strcpy(new_song->name, name);
 	strcpy(new_song->artist, artist);
-	while(front && front->next &&strcmp(new_song->artist, front->next->artist) > 0){
+	while(front && front->next && strcmp(new_song->artist, front->next->artist) > 0){
 		front = front->next;
 	}
 	while(front && front->next && strcmp(new_song->name, front->next->name) > 0){
