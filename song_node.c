@@ -39,10 +39,74 @@ void print_node(struct song_node * song){
 }
 
 char * find_node(char name[100], char artist[100], struct song_node * front){
+	char * rtrnStr = malloc(sizeof(char) * 200);
 	while(front){
 		if(strcmp(name, front->name) == 0 && strcmp(artist, front->artist) == 0){
-			
+			strcat(rtrnStr, name);
+			strcat(rtrnStr, ": ");
+			strcat(rtrnStr, artist);
+			return rtrnStr;
 		}
 	}
+	strcat(rtrnStr, "node not found");
+	return rtrnStr;
+}
 
+struct song_node * find_artist(char artist[100], struct song_node * front){
+	while(front){
+		if(strcmp(artist, front->artist) == 0){
+			return front;
+		}
+	}
+	return front;
+}
+
+struct song_node * shuffle(struct song_node * front){
+	int length = 0;
+	struct song_node * curr = front;
+	while(curr){
+		curr = curr->next;
+		length++;
+	}
+
+	int select = length * rand() / RAND_MAX;
+	while(select > 0){
+		front = front->next;
+	}
+
+	return front;
+}
+
+int remove_song(char name[100], char artist[100], struct song_node * front){
+	while(front){
+		if(strcmp(name, front->next->name) == 0 && strcmp(artist, front->next->artist) == 0){
+			struct song_node * tempptr = front->next->next;
+			free(front->next);
+			front->next = tempptr;
+			return 1;
+		}
+	}
+	return 0;
+}
+
+void remove_all(struct song_node * front){
+	int len = 0;
+	struct song_node * curr = front;
+	while(curr){
+		curr = curr->next;
+		len++;
+	}
+
+	struct song_node * nodeptrs[len];
+	curr = front;
+	while(curr){
+		nodeptrs[len-1] = curr;
+		len--;
+		curr = curr->next;
+	}
+
+	int i;
+	for(i = 0; i < sizeof(nodeptrs) / 8; i++){
+		free(nodeptrs[i]);
+	}
 }
