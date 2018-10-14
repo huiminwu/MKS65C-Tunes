@@ -12,18 +12,12 @@ struct song_node * insert_front(char name[100], char artist[100], struct song_no
 	return new_song;
 }
 
-void insert(char name[100], char artist[100], struct song_node * front){
-	struct song_node * new_song = malloc(sizeof(struct song_node));
-	strcpy(new_song->name, name);
-	strcpy(new_song->artist, artist);
-	while(front && front->next && strcmp(new_song->artist, front->next->artist) > 0){
-		front = front->next;
-	}
-	while(front && front->next && strcmp(new_song->name, front->next->name) > 0){
-		front = front->next;
-	}
-	new_song->next = front->next;
-	front->next = new_song;
+struct song_node * insert(char name[100], char artist[100], struct song_node * front){
+	return insert(name, artist, front, front);
+}
+
+struct song_node * insert(char name[100], char artist[100], struct song_node * front, struct song_node * curr){
+	
 }
 
 void print_list(struct song_node * front){
@@ -39,17 +33,12 @@ void print_node(struct song_node * song){
 }
 
 char * find_node(char name[100], char artist[100], struct song_node * front){
-	char * rtrnStr = malloc(sizeof(char) * 200);
 	while(front){
 		if(strcmp(name, front->name) == 0 && strcmp(artist, front->artist) == 0){
-			strcat(rtrnStr, name);
-			strcat(rtrnStr, ": ");
-			strcat(rtrnStr, artist);
-			return rtrnStr;
+			return front;
 		}
 	}
-	strcat(rtrnStr, "node not found");
-	return rtrnStr;
+	return front;
 }
 
 struct song_node * find_artist(char artist[100], struct song_node * front){
