@@ -6,7 +6,7 @@ struct song_node * insert(char name[100], char artist[100], struct song_node * f
 
 //struct song_node * insert(char name[100], char artist[100], struct song_node * front, struct song_node * curr);
 
-void print_list(struct song_node *);
+void print_list(struct song_node * front);
 
 void print_node(struct song_node * song);
 
