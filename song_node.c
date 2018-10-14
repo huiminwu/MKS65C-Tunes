@@ -13,12 +13,12 @@ struct song_node * insert_front(char name[100], char artist[100], struct song_no
 }
 
 struct song_node * insert(char name[100], char artist[100], struct song_node * front){
-	return insert(name, artist, front, front);
+	return insert(name, artist, front);//, front);
 }
 
-struct song_node * insert(char name[100], char artist[100], struct song_node * front, struct song_node * curr){
-	
-}
+//struct song_node * insert(char name[100], char artist[100], struct song_node * front, struct song_node * curr){
+//commented so things compile	
+//}
 
 void print_list(struct song_node * front){
 	while(front){
@@ -32,7 +32,7 @@ void print_node(struct song_node * song){
 	printf("%s: %s\n", song->artist, song->name);
 }
 
-char * find_node(char name[100], char artist[100], struct song_node * front){
+struct song_node * find_node(char name[100], char artist[100], struct song_node * front){
 	while(front){
 		if(strcmp(name, front->name) == 0 && strcmp(artist, front->artist) == 0){
 			return front;
