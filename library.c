@@ -9,3 +9,8 @@ int findIndex(char * name) {
     return asciiVal - 65;
 }
 
+void insert_song(char * song, char * artist) {
+    int index = findIndex(song);
+    
+}
+
