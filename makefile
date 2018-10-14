@@ -12,3 +12,6 @@ song_node.o: song_node.c song_node.h
 
 library.o: library.c library.h
 	gcc -c library.c library.h
+
+debug: main.o song_node.o library.o
+	gcc -g main.o song_node.o library.o

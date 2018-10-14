@@ -7,6 +7,6 @@ int main() {
     insert("Manic Monday", "The Bangles", song1);
     printf("LINKED LIST TESTS \n====================================\n");
     printf("Testing print_list: \n");
-    //print_list(song1);
+    print_list(song1);
     return 0;
 }
