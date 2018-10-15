@@ -41,7 +41,11 @@ void print_list(struct song_node * front){
 }
 
 void print_node(struct song_node * song){
-	printf("%s: %s\n", song->artist, song->name);
+	if(song){
+		printf("%s: %s\n", song->artist, song->name);
+	}else{
+		printf("NULL\n");
+	}
 }
 
 struct song_node * find_node(char name[100], char artist[100], struct song_node * front){
@@ -49,6 +53,7 @@ struct song_node * find_node(char name[100], char artist[100], struct song_node 
 		if(strcmp(name, front->name) == 0 && strcmp(artist, front->artist) == 0){
 			return front;
 		}
+		front = front->next;
 	}
 	return front;
 }
@@ -58,6 +63,7 @@ struct song_node * find_artist(char artist[100], struct song_node * front){
 		if(strcmp(artist, front->artist) == 0){
 			return front;
 		}
+		front = front->next;
 	}
 	return front;
 }
@@ -73,6 +79,7 @@ struct song_node * shuffle(struct song_node * front){
 	int select = length * rand() / RAND_MAX;
 	while(select > 0){
 		front = front->next;
+		select--;
 	}
 
 	return front;

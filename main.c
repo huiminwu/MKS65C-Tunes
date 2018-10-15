@@ -32,7 +32,7 @@ int main() {
     printf("Testing find artist:\n");
     printf("looking for [Elton John] (exists) \n");
     print_list(find_artist("Elton John", song1));
-    printf("looking for [The Beach Boys] (exists) \n");
+    printf("looking for [The Beach Boys] (doesn't exist) \n");
     print_list(find_artist("The Beach Boys", song1));
 
     printf("%s", dashes);
