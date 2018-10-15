@@ -4,7 +4,7 @@
 int main() {
     char * dashes = "===========================\n";
     struct song_node * song1 = NULL;
-    song1 = insert_front("Kung Fu Fighting", "Carl Douglas", song1);
+    song1 = insert("Kung Fu Fighting", "Carl Douglas", song1);
     song1 = insert("Manic Monday", "The Bangles", song1);
     song1 = insert("True", "Spandau Ballet", song1);
     song1 = insert("Hotel California", "Eagles", song1);
