@@ -13,12 +13,18 @@ struct song_node * insert_front(char name[100], char artist[100], struct song_no
 }
 
 struct song_node * insert(char name[100], char artist[100], struct song_node * front){
-	return insert(name, artist, front);//, front);
+	struct song_node * new_song = malloc(sizeof(struct song_node));
+	strcpy(new_song->name, name);
+	strcpy(new_song->artist, artist);
+	while(front && front->next && strcmp(new_song->artist, front->next->artist) > 0){
+		front = front->next;
+	}
+	while(front && front->next && strcmp(new_song->name, front->next->name) > 0){
+		front = front->next;
+	}
+	new_song->next = front->next;
+	front->next = new_song;
 }
-
-//struct song_node * insert(char name[100], char artist[100], struct song_node * front, struct song_node * curr){
-//commented so things compile	
-//}
 
 void print_list(struct song_node * front){
 	while(front){
