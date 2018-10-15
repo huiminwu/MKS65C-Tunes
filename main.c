@@ -16,7 +16,7 @@ int main() {
     print_list(song1);
     song1 = insert("Rocket Man", "Elton John", song1);
     print_list(song1);
-    song1 = insert("Tiny Dancer", "Elton John", song1); 
+    song1 = insert("Tiny Dancer", "Elton John", song1);
     printf("LINKED LIST TESTS \n%s \n", dashes);
     printf("Testing print_list: \n");
     printf("%s", dashes);
@@ -35,16 +35,16 @@ int main() {
 
     printf("%s", dashes);
     printf("Testing find artist:\n");
-    printf("looking for [Elton John] (exists) \n");
-    print_list(find_artist("Elton John", song1));
-    printf("looking for [The Beach Boys] (doesn't exist) \n");
-    print_list(find_artist("The Beach Boys", song1));
+    printf("looking for first [Elton John] (exists) \n");
+    print_node(find_artist("Elton John", song1));
+    printf("looking for first [The Beach Boys] (doesn't exist) \n");
+    print_node(find_artist("The Beach Boys", song1));
 
     printf("%s", dashes);
     printf("Testing shuffle:\n");
-    print_node(shuffle());
-    print_node(shuffle());
-    print_node(shuffle());
+    print_node(shuffle(song1));
+    print_node(shuffle(song1));
+    print_node(shuffle(song1));
 
     printf("%s", dashes);
     printf("Testing removing a song: \n");

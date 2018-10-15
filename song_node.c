@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 struct song_node{ char name[100]; char artist[100]; struct song_node * next;};
 
@@ -70,17 +71,17 @@ struct song_node * find_artist(char artist[100], struct song_node * front){
 }
 
 struct song_node * shuffle(struct song_node * front){
-	int length = 0;
+    int len = 0;
 	struct song_node * curr = front;
 	while(curr){
 		curr = curr->next;
-		length++;
+		len++;
 	}
-
-	int select = length * rand() / RAND_MAX;
+    srand(time(NULL));
+    int select = len * ((float)rand() / RAND_MAX);
 	while(select > 0){
-		front = front->next;
-		select--;
+	    front = front->next;
+	    select--;
 	}
 
 	return front;
