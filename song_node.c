@@ -28,6 +28,7 @@ struct song_node * insert(char name[100], char artist[100], struct song_node * f
 		}
 		new_song->next = curr->next;
 		curr->next = new_song;
+        printf("FRONT: %s\n", curr->artist);
 		return front;
 	}
 }

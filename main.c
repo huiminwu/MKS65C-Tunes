@@ -5,13 +5,18 @@ int main() {
     char * dashes = "===========================\n";
     struct song_node * song1 = NULL;
     song1 = insert("Kung Fu Fighting", "Carl Douglas", song1);
+    print_list(song1);
     song1 = insert("Manic Monday", "The Bangles", song1);
+    print_list(song1);
     song1 = insert("True", "Spandau Ballet", song1);
+    print_list(song1);
     song1 = insert("Hotel California", "Eagles", song1);
+    print_list(song1);
     song1 = insert("Take It Easy", "Eagles", song1);
+    print_list(song1);
     song1 = insert("Rocket Man", "Elton John", song1);
-    song1 = insert("Tiny Dancer", "Elton John", song1);
-    
+    print_list(song1);
+    song1 = insert("Tiny Dancer", "Elton John", song1); 
     printf("LINKED LIST TESTS \n%s \n", dashes);
     printf("Testing print_list: \n");
     printf("%s", dashes);
