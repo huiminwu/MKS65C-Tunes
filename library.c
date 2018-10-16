@@ -16,6 +16,7 @@ void insert_song(char * song, char * artist) {
 }
 
 struct song_node * find_song(char * song, char * artist) {
+    printf("Finding %s by %s: ", song, artist);
     int index = find_index(artist);
     return find_node(song, artist, lib[index]);
 }
@@ -28,7 +29,12 @@ struct song_node * find_songs_by_artist(char * artist) {
 void print_entries_for_letter(char letter) {
     char * l = &letter;
     int index = find_index(l);
-    print_list(lib[index]);
+    printf("%c list: ", letter);
+    if (lib[index]) {
+        print_list(lib[index]);
+    } else {
+        printf("Nothing in there yet!");
+    }
 }
 
 void print_songs_by_artist(char * artist) {
@@ -37,8 +43,11 @@ void print_songs_by_artist(char * artist) {
 
 void print_lib() {
     int i = 0;
-    for(; i < 27; i++) {
-        print_list(lib[i]);
+    for(; i < 26; i++) {
+        if(lib[i]){
+            printf("%c list: ", i+65);
+            print_list(lib[i]);
+        }
     }
 }
 

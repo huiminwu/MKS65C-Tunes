@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "song_node.h"
+#include "library.h"
 
 int main() {
     char * dashes = "===========================\n";
@@ -46,20 +47,43 @@ int main() {
     print_node(shuffle(song1));
     print_node(shuffle(song1));
 
+//    printf("%s", dashes);
+//    printf("Testing removing a song: \n");
+//    printf("removing [Carl Douglas, Kung Fu Fighting] (exists)\n");
+//    remove_song("Kung Fu Fighting", "Carl Douglas", song1);
+//    print_list(song1);
+//    printf("removing [Toto, Africa] (doesn't exist)\n");
+//    remove_song("Africa", "Toto", song1);
+//    print_list(song1);
+//
+//    printf("%s", dashes);
+//    printf("Testing removing everything: \n");
+//    remove_all(song1);
+//    printf("List after freeing everything: \n");
+//    print_list(song1);
+//
+    insert_song("Heaven Is A Place On Earth", "Belinda Carlisle");
+    insert_song("Boogie Wonderland", "Earth Wind Fire");
+    insert_song("September", "Earth Wind Fire");
+    insert_song("Material Girl", "Madonna");
+    insert_song("Man In The Mirror", "Michael Jackson");
     printf("%s", dashes);
-    printf("Testing removing a song: \n");
-    printf("removing [Carl Douglas, Kung Fu Fighting] (exists)\n");
-    remove_song("Kung Fu Fighting", "Carl Douglas", song1);
-    print_list(song1);
-    printf("removing [Toto, Africa] (doesn't exist)\n");
-    remove_song("Africa", "Toto", song1);
-    print_list(song1);
+    printf("TESTING MUSIC LIB\n");
+    
+    printf("%s", dashes);
+    printf("Testing print_library\n");
+    print_lib();
 
     printf("%s", dashes);
-    printf("Testing removing everything: \n");
-    remove_all(song1);
-    printf("List after freeing everything: \n");
-    print_list(song1);
+    printf("Testing print_letter\n");
+    print_entries_for_letter('B');
+    print_entries_for_letter('M');
+    print_entries_for_letter('A');
 
+    printf("\n%s", dashes);
+    printf("Testing find\n");
+    print_node(find_song("Heaven Is A Place On Earth", "Belinda Carlisle"));
+    print_node(find_song("Alive", "Pearl Jam"));
+    printf("%s", dashes);
     return 0;
 }
