@@ -24,11 +24,11 @@ struct song_node * insert(char name[100], char artist[100], struct song_node * f
 			strcpy(new_song->name, name);
 			strcpy(new_song->artist, artist);
 			struct song_node * curr = front;
-			if(curr && curr->next && strcmp(new_song->name, curr->name) > 0){
+			while(curr && curr->next && strcmp(new_song->artist, curr->artist) > 0){
+				curr = curr->next;
+			}
+			if(curr && curr->next && strcmp(new_song->artist, curr->artist) == 0){
 				while(curr && curr->next && strcmp(new_song->name, curr->name) > 0){
-					curr = curr->next;
-				}
-				while(curr && curr->next && strcmp(new_song->artist, curr->artist) > 0){
 					curr = curr->next;
 				}
 			}
