@@ -40,6 +40,22 @@ struct song_node * insert(char name[100], char artist[100], struct song_node * f
 	}
 }
 
+int song_comp(struct song_node * first, struct song_node * second){
+	if(strcmp(first->artist, second->artist) < 0){
+		return -1;
+	}else if(strcmp(first->artist, second->artist) > 0){
+		return 1;
+	}else{
+		if(strcmp(first->name, second->name) < 0){
+			return -1;
+		}else if(strcmp(first->name, second->name) > 0){
+			return 1;
+		}else{
+			return 1;
+		}
+	}
+}
+
 void print_list(struct song_node * front){
 	while(front){
 		printf("%s: %s | ", front->artist, front->name);
