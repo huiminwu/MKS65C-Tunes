@@ -52,12 +52,12 @@ void print_lib() {
 }
 
 void shuffle_list() {
-    srand(time(NULL));
-    int n = rand() % 27;
-    while(!lib[n]) {
-        n = rand() % 27;
+    for(int i = 0; i < 26; i++) {
+        int n = rand() % 27; 
+        if(lib[n]) {
+            print_node(shuffle(lib[n]));
+        }
     }
-    print_node(shuffle(lib[n]));
 }
 
 void remove_a_song(char * name, char * artist) {

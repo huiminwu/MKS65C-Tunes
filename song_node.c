@@ -110,7 +110,6 @@ struct song_node * shuffle(struct song_node * front){
 		curr = curr->next;
 		len++;
 	}
-    srand(time(NULL));
     int select = len * ((float)rand() / RAND_MAX);
 	while(select > 0){
 	    front = front->next;

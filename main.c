@@ -1,8 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "song_node.h"
 #include "library.h"
 
 int main() {
+    srand(time(NULL));
     char * dashes = "===========================\n";
     struct song_node * song1 = NULL;
     song1 = insert("Kung Fu Fighting", "Carl Douglas", song1);
@@ -112,6 +115,8 @@ int main() {
     insert_song("Take On Me", "Aha");
     insert_song("Freefallin", "Tom Petty");
     insert_song("Hunting High And Low", "Aha");
+    insert_song("Kiss", "Prince");
+    insert_song("Purple Rain", "Prince");
     print_lib();
 
     printf("%s", dashes);
