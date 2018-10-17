@@ -48,11 +48,11 @@ struct song_node * insert(char name[100], char artist[100], struct song_node * f
 		strcpy(new_song->name, name);
 		strcpy(new_song->artist, artist);
 		struct song_node * curr = front;
-		while(curr && song_comp(new_song, curr) > 0){
+		while(curr->next && song_comp(new_song, curr->next) > 0){
 			curr = curr->next;
 		}
 
-		if(curr){
+		if(curr->next){
 			new_song->next = curr->next;
 			curr->next = new_song;
 		}else{
