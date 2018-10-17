@@ -131,8 +131,9 @@ struct song_node * remove_song(char name[100], char artist[100], struct song_nod
             if (strcmp(name, after->name) == 0 && strcmp(artist, after->artist) == 0) {
                 front->next = after->next; //skip the matching node
                 free(after);
+            } else {
+                front = after; //increment
             }
-            front = after; //increment
         }
         return front;
 	}

@@ -50,11 +50,13 @@ int main() {
     printf("%s", dashes);
     printf("Testing removing a song: \n");
     printf("removing [Carl Douglas, Kung Fu Fighting] (exists)\n");
-    remove_song("Kung Fu Fighting", "Carl Douglas", song1);
-    print_node(song1);
+    song1 = remove_song("Kung Fu Fighting", "Carl Douglas", song1);
     print_list(song1);
     printf("removing [Toto, Africa] (doesn't exist)\n");
     remove_song("Africa", "Toto", song1);
+    print_list(song1);
+    printf("remocing [Spandau Ballet, True] (exists) \n");
+    remove_song("True", "Spandau Ballet", song1);
     print_list(song1);
 
     printf("%s", dashes);

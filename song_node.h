@@ -16,6 +16,6 @@ struct song_node * find_artist(char artist[100], struct song_node * front);
 
 struct song_node * shuffle();
 
-void remove_song(char name[100], char artist[100], struct song_node * front);
+struct song_node * remove_song(char name[100], char artist[100], struct song_node * front);
 
 void remove_all(struct song_node * front);
