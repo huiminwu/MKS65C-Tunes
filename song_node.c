@@ -13,33 +13,6 @@ struct song_node * insert_front(char name[100], char artist[100], struct song_no
 	return new_song;
 }
 
-struct song_node * insert(char name[100], char artist[100], struct song_node * front){
-	if(!front){
-		return insert_front(name, artist, front);
-	}else{
-		if(strcmp(artist, front->artist) < 0){
-			return insert_front(name, artist, front);
-		}else{
-			struct song_node * new_song = malloc(sizeof(struct song_node));
-			strcpy(new_song->name, name);
-			strcpy(new_song->artist, artist);
-			struct song_node * curr = front;
-			while(curr && curr->next && strcmp(new_song->artist, curr->artist) > 0){
-				curr = curr->next;
-			}
-			if(curr && curr->next && strcmp(new_song->artist, curr->artist) == 0){
-				while(curr && curr->next && strcmp(new_song->name, curr->name) > 0){
-					curr = curr->next;
-				}
-			}
-			new_song->next = curr->next;
-			curr->next = new_song;
-	        printf("FRONT: %s\n", front->artist);
-			return front;
-		}
-	}
-}
-
 int song_comp(struct song_node * first, struct song_node * second){
 	if(strcmp(first->artist, second->artist) < 0){
 		return -1;
@@ -53,6 +26,41 @@ int song_comp(struct song_node * first, struct song_node * second){
 		}else{
 			return 1;
 		}
+	}
+}
+
+struct song_node * insert(char name[100], char artist[100], struct song_node * front){
+	if(!front){
+		return insert_front(name, artist, front);
+	}else if(!(front->next)){
+		struct song_node * new_song = malloc(sizeof(struct song_node));
+		strcpy(new_song->name, name);
+		strcpy(new_song->artist, artist);
+		if(song_comp(new_song, front) < 0){
+			return insert_front(name, artist, front);
+		}else{
+			front->next = new_song;
+			new_song->next = NULL;
+			return front;
+		}
+	}else{
+		struct song_node * new_song = malloc(sizeof(struct song_node));
+		strcpy(new_song->name, name);
+		strcpy(new_song->artist, artist);
+		struct song_node * curr = front;
+		while(curr && song_comp(new_song, curr) > 0){
+			curr = curr->next;
+		}
+
+		if(curr){
+			new_song->next = curr->next;
+			curr->next = new_song;
+		}else{
+			curr->next = new_song;
+			new_song->next = NULL;
+		}
+
+		return front;
 	}
 }
 
