@@ -47,21 +47,22 @@ int main() {
     print_node(shuffle(song1));
     print_node(shuffle(song1));
 
-//    printf("%s", dashes);
-//    printf("Testing removing a song: \n");
-//    printf("removing [Carl Douglas, Kung Fu Fighting] (exists)\n");
-//    remove_song("Kung Fu Fighting", "Carl Douglas", song1);
-//    print_list(song1);
-//    printf("removing [Toto, Africa] (doesn't exist)\n");
-//    remove_song("Africa", "Toto", song1);
-//    print_list(song1);
-//
-//    printf("%s", dashes);
-//    printf("Testing removing everything: \n");
-//    remove_all(song1);
-//    printf("List after freeing everything: \n");
-//    print_list(song1);
-//
+    printf("%s", dashes);
+    printf("Testing removing a song: \n");
+    printf("removing [Carl Douglas, Kung Fu Fighting] (exists)\n");
+    remove_song("Kung Fu Fighting", "Carl Douglas", song1);
+    print_node(song1);
+    print_list(song1);
+    printf("removing [Toto, Africa] (doesn't exist)\n");
+    remove_song("Africa", "Toto", song1);
+    print_list(song1);
+
+    printf("%s", dashes);
+    printf("Testing removing everything: \n");
+    remove_all(song1);
+    printf("List after freeing everything: \n");
+    print_list(song1);
+
     insert_song("Heaven Is A Place On Earth", "Belinda Carlisle");
     insert_song("Boogie Wonderland", "Earth Wind Fire");
     insert_song("September", "Earth Wind Fire");

@@ -32,11 +32,11 @@ int song_comp(struct song_node * first, struct song_node * second){
 struct song_node * insert(char name[100], char artist[100], struct song_node * front){
 	if(!front){
 		return insert_front(name, artist, front);
-	}else if(!(front->next)){
+	}else if(!(front->next)){ //if there isn't a second song,
 		struct song_node * new_song = malloc(sizeof(struct song_node));
 		strcpy(new_song->name, name);
 		strcpy(new_song->artist, artist);
-		if(song_comp(new_song, front) < 0){
+		if(song_comp(new_song, front) < 0){ //if the second song takes precedent over first,
 			return insert_front(name, artist, front);
 		}else{
 			front->next = new_song;
@@ -48,7 +48,7 @@ struct song_node * insert(char name[100], char artist[100], struct song_node * f
 		strcpy(new_song->name, name);
 		strcpy(new_song->artist, artist);
 		struct song_node * curr = front;
-		while(curr->next && song_comp(new_song, curr->next) > 0){
+		while(curr->next && song_comp(new_song, curr->next) > 0){ //while there is a next node and the song next to the current takes precedence,
 			curr = curr->next;
 		}
 
@@ -73,7 +73,7 @@ void print_list(struct song_node * front){
 }
 
 void print_node(struct song_node * song){
-	if(song){
+	if(song->name){
 		printf("%s: %s\n", song->artist, song->name);
 	}else{
 		printf("NULL\n");
@@ -120,16 +120,21 @@ struct song_node * shuffle(struct song_node * front){
 	return front;
 }
 
-int remove_song(char name[100], char artist[100], struct song_node * front){
-	while(front){
-		if(strcmp(name, front->next->name) == 0 && strcmp(artist, front->next->artist) == 0){
-			struct song_node * tempptr = front->next->next;
-			free(front->next);
-			front->next = tempptr;
-			return 1;
-		}
+struct song_node * remove_song(char name[100], char artist[100], struct song_node * front){
+	if(strcmp(name, front->name) == 0 && strcmp(artist, front->artist) == 0){
+        struct song_node * newFront = front->next;
+        free(front);
+        return newFront;
+    } else {
+        while(front->next) {
+            struct song_node * after = front->next;
+            if (strcmp(name, after->name) == 0 && strcmp(artist, after->artist) == 0) {
+                front->next = after->next; //skip the matching node
+            }
+            front = after; //increment
+        }
+        return front;
 	}
-	return 0;
 }
 
 void remove_all(struct song_node * front){
