@@ -61,7 +61,7 @@ int main() {
 
     printf("%s", dashes);
     printf("Testing removing everything: \n");
-    remove_all(song1);
+    song1 = remove_all(song1);
     printf("List after freeing everything: \n");
     print_list(song1);
 

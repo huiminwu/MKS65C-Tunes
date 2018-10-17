@@ -139,7 +139,7 @@ struct song_node * remove_song(char name[100], char artist[100], struct song_nod
 	}
 }
 
-void remove_all(struct song_node * front){
+struct song_node * remove_all(struct song_node * front){
 	int len = 0;
 	struct song_node * curr = front;
 	while(curr){
@@ -159,4 +159,5 @@ void remove_all(struct song_node * front){
 	for(i = 0; i < sizeof(nodeptrs) / 8; i++){
 		free(nodeptrs[i]);
 	}
+    return curr;
 }
