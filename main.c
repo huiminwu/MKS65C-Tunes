@@ -84,6 +84,16 @@ int main() {
     printf("Testing find\n");
     print_node(find_song("Heaven Is A Place On Earth", "Belinda Carlisle"));
     print_node(find_song("Alive", "Pearl Jam"));
+    
     printf("%s", dashes);
+    printf("Testing find_artist\n");
+    printf("Finding songs by Earth Wind Fire\n");
+    print_songs_by_artist("Earth Wind Fire");
+    printf("Finding songs by Bob Marley\n");
+    print_songs_by_artist("Bob Marley");
+
+    printf("%s", dashes);
+    printf("Testing remove_song\n");
+
     return 0;
 }

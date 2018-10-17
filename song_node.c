@@ -97,6 +97,9 @@ struct song_node * find_artist(char artist[100], struct song_node * front){
 		}
 		front = front->next;
 	}
+    if(!front) {
+        printf("NULL");
+    }
 	return front;
 }
 
