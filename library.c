@@ -53,11 +53,11 @@ void print_lib() {
 
 void shuffle_list() {
     srand(time(NULL));
-    int i = 0;
-    for (; i < 5; i++) {
-        struct song_node * song = shuffle(lib[rand() % 27]);
-        print_node(song);
+    int n = rand() % 27;
+    while(!lib[n]) {
+        n = rand() % 27;
     }
+    print_node(shuffle(lib[n]));
 }
 
 void remove_a_song(char * name, char * artist) {
@@ -69,6 +69,7 @@ void remove_a_song(char * name, char * artist) {
 void clear_lib(){
     int i = 0;
     for(; i < 27; i++) {
-        remove_all(lib[i]);
+        lib[i] = remove_all(lib[i]);
     }
+    print_lib();
 }

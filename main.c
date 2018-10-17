@@ -97,6 +97,32 @@ int main() {
 
     printf("%s", dashes);
     printf("Testing remove_song\n");
+    printf("Removing [Earth Wind Fire, September]\n");
+    remove_a_song("September", "Earth Wind Fire");
+    printf("Removing [Billy Joel, Uptown Girl]\n");
+    remove_a_song("Uptown Girl", "Billy Joel\n");
 
+    printf("%s", dashes);
+    printf("Library after clear:\n");
+    clear_lib();
+
+    printf("%s", dashes);
+    printf("Adding songs to empty library\n");
+    insert_song("We Belong", "Pat Benatar");
+    insert_song("Take On Me", "Aha");
+    insert_song("Freefallin", "Tom Petty");
+    insert_song("Hunting High And Low", "Aha");
+    print_lib();
+
+    printf("%s", dashes);
+    printf("Testing print_artist\n");
+    printf("Printing Aha (exists)\n");
+    print_songs_by_artist("Aha");
+    printf("Printing Justin Bieber (doesn't exist)\n");
+    print_songs_by_artist("Justin Bieber");
+    
+    printf("%s", dashes);
+    printf("Testing shuffle\n");
+    shuffle_list();
     return 0;
 }
